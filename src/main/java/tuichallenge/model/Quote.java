@@ -5,10 +5,14 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Document(collection = "quotes")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Quote {
 
 	@Id
@@ -21,6 +25,8 @@ public class Quote {
 	private List<String> tags;
 
 	private String authorSlug;
+	
+	private Integer length;
 
 	private String dateAdded;
 

@@ -7,10 +7,28 @@ import tuichallenge.exception.ElementNotFoundException;
 
 public interface QuoteService {
 
+	/**
+	 * Find quote by id
+	 * 
+	 * @param id
+	 * @return
+	 * @throws ElementNotFoundException
+	 */
 	QuoteDto findQuoteById(String id) throws ElementNotFoundException;
 
-	List<QuoteDto> findQuoteByAuthor(String author);
+	/**
+	 * find quotes by author
+	 * 
+	 * @param author
+	 * @return
+	 */
+	List<QuoteDto> findQuotesByAuthor(String author);
 
+	/**
+	 * Find all quotes
+	 * 
+	 * @return
+	 */
 	List<QuoteDto> findAllQuotes();
 
 }

@@ -2,12 +2,14 @@ package tuichallenge.dto;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tuichallenge.model.Quote;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class QuoteDto {
 
 	private String author;
@@ -17,6 +19,8 @@ public class QuoteDto {
 	private List<String> tags;
 
 	private String authorSlug;
+
+	private Integer length;
 
 	private String dateAdded;
 
@@ -28,6 +32,7 @@ public class QuoteDto {
 		this.setContent(quote.getContent());
 		this.setDateAdded(quote.getDateAdded());
 		this.setDateModified(quote.getDateModified());
+		this.setLength(quote.getLength());
 		this.setTags(quote.getTags());
 	}
 }

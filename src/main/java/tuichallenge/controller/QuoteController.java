@@ -28,11 +28,11 @@ public class QuoteController {
 
 	@GetMapping(value = "/author/{author}")
 	public ResponseEntity<List<QuoteDto>> getQuoteByAuthor(@PathVariable String author) {
-		return ResponseEntity.ok(quoteService.findQuoteByAuthor(author));
+		return ResponseEntity.ok(quoteService.findQuotesByAuthor(author));
 	}
 
 	@GetMapping(value = "/all")
-	public ResponseEntity<List<QuoteDto>> getAll()  {
+	public ResponseEntity<List<QuoteDto>> getAll() {
 		return ResponseEntity.ok(quoteService.findAllQuotes());
 	}
 
