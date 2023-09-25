@@ -15,13 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
 import tuichallenge.dto.QuoteDto;
 import tuichallenge.exception.ElementNotFoundException;
 import tuichallenge.repository.QuoteRepository;
+import tuichallenge.util.Util;
 
 @Service
-@Slf4j
 public class QuoteServiceImpl implements QuoteService {
 
 	@Autowired
@@ -44,8 +43,8 @@ public class QuoteServiceImpl implements QuoteService {
 
 	@Override
 	public QuoteDto findQuoteById(String id) throws ElementNotFoundException {
-		return new QuoteDto(quoteRepository.findById(id)
-				.orElseThrow(() -> new ElementNotFoundException("Quote could not be found")));
+		return new QuoteDto(quoteRepository.findById(id).orElseThrow(
+				() -> new ElementNotFoundException(Util.getMessageBoundle().getString("exception.notfound"))));
 	}
 
 	@Override

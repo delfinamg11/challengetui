@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import lombok.extern.slf4j.Slf4j;
 import tuichallenge.error.ApiError;
 import tuichallenge.exception.ElementNotFoundException;
+import tuichallenge.util.Util;
 
 @RestControllerAdvice
 @Slf4j
@@ -24,6 +25,7 @@ public class QuoteControllerAdvidsor {
 	@ExceptionHandler(RuntimeException.class)
 	public ApiError handleRunTimeException(RuntimeException ex) {
 		log.error("Internal error", ex);
-		return new ApiError(HttpStatus.INTERNAL_SERVER_ERROR.toString(), "There was an error processing your request");
+		return new ApiError(HttpStatus.INTERNAL_SERVER_ERROR.toString(),
+				Util.getMessageBoundle().getString("exception.internalError"));
 	}
 }
